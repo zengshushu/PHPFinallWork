@@ -185,16 +185,31 @@
                             </thead>
                             <tbody>
                             <?php
+                                    define('UserPhotoPath','./img/');
                                     echo '<tr class="gradeX">';
-                                    
-                                    $users=array(
-                                        array('曾立新','12345','男','1998/04/21','搞事 守望先锋','本科在读','我很帅','错误头像'),              
-                                    );
-                                    for($i=0;$i<count($users);$i++){
+                                    $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
+                                    mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
+                                    mysqli_set_charset($con,"UTF8");     
+                                    $sql = "SELECT * FROM users ";
+                                          //执行SQL语句
+
+                                    $result=mysqli_query($con,$sql);
+                                
+                                    while ($row = mysqli_fetch_assoc($result)){
                                         echo '<tr>';
-                                        for($j=0;$j<count($users[$i]);$j++){
-                                            echo '<td>'.$users[$i][$j].'</td>';
+                                        echo '<td>'.$row["uname"].'</td>';
+                                        echo '<td>'.$row["password"].'</td>';
+                                        if($row["gender"]==1){
+                                            echo '<td>男</td>';
+                                        }else{
+                                            echo '<td>女</td>';
                                         }
+                                        echo '<td>'.$row["brithdate"].'</td>';
+                                        echo '<td>'.$row["hobby"].'</td>';
+                                        echo '<td>'.$row["degree"].'</td>';
+                                        echo '<td>'.$row["intro"].'</td>';
+                                        
+                                        echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
                                         echo'<td class="actions">';
                                         echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
                                         echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
@@ -203,22 +218,13 @@
                                         echo'</td>';
                                         echo '</tr>';
                                     }
+                                    
+                                    
+                                    //关闭数据库
+                                    mysqli_close($con);  
+
                                     ?>
-                                    <td>曾立新</td>
-                                    <td>123456</td>
-                                    <td>男</td>
-                                    <td>1998/04/21</td>
-                                    <td>搞事 守望先锋</td>
-                                    <td>本科在读</td>
-                                    <td>我很帅</td>
-                                    <td><img src="assets/images/users/avatar-1.jpg" style="width:25px;height: 25px; overflow:hidden; "alt="user-img" class="img-circle user-img"></td>
-                                    <td class="actions">
-                                        <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-                                        <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-                                        <a href="change.php" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr>
+                                    
                                
                             </tbody>
                         </table>
