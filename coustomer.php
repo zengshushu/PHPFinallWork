@@ -213,8 +213,8 @@
                                         echo'<td class="actions">';
                                         echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
                                         echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
-                                        echo'<a href="change.php" class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
-                                        echo'<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
+                                        echo'<a href="change.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')"class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
+                                        echo'<a href="doUserDelete.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
                                         echo'</td>';
                                         echo '</tr>';
                                     }
