@@ -197,6 +197,12 @@
                                 
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo '<tr>';
+                                        echo'<td class="actions">';
+                                        echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
+                                        echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
+                                        echo'<a href="change.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')"class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
+                                        echo'<a href="doUserDelete.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
+                                        echo'</td>';
                                         echo '<td>'.$row["uname"].'</td>';
                                         echo '<td>'.$row["password"].'</td>';
                                         if($row["gender"]==1){
@@ -210,12 +216,9 @@
                                         echo '<td>'.$row["intro"].'</td>';
                                         
                                         echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
-                                        echo'<td class="actions">';
-                                        echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
-                                        echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
-                                        echo'<a href="change.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')"class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
-                                        echo'<a href="doUserDelete.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
-                                        echo'</td>';
+                                        
+
+                                        
                                         echo '</tr>';
                                     }
                                     

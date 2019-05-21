@@ -119,7 +119,7 @@
 </div>
 
     <div class="custom-file form-inline">
-        <input type="file"  name="photo" class="custom-file-input" >
+        <input type="file"  name="file" class="custom-file-input" >
         <label class="custom-file-label" for="customFile" style="padding:12px">选择照片</label>
       </div>
   </div>
