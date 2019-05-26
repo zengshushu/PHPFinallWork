@@ -215,7 +215,7 @@
                                         echo '<td>'.$row["degree"].'</td>';
                                         echo '<td>'.$row["intro"].'</td>';
                                         
-                                        echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
+                                        echo '<td><img src="" width = 60 height = 60 ></td>';
                                         
 
                                         
