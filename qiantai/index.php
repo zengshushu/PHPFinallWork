@@ -38,6 +38,13 @@
 </head>
 
 <body>
+<?php
+        session_start();
+        if(!isset($_SESSION["uname"])){
+            header("location:/PHPFinallWork/qiantai/login.php?msg=您没有权限，请登录后访问！");
+            
+        }
+        ?>
     <div class="wrapper">
         <!-- Banner -->
 
@@ -58,7 +65,9 @@
                             </span>
                         </div>
                         <a href="#" class="btn btn--sign btn--singin">
-                            BlackMoon
+                        <?php           
+                            echo '您好： '.$_SESSION["uname"];
+                         ?>
                         </a>
                         <ul class="auth__function">
                             <li><a href="#" class="auth__function-item">个人信息</a></li>

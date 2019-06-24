@@ -21,12 +21,7 @@
         <script src="assets/js/modernizr.min.js"></script>
 <script>
   
- 
- 
- 
 
- 
-  
 
 </script>
 
@@ -41,7 +36,14 @@
 
 
     <body>
-
+        <?php
+        session_start();
+        if(!isset($_SESSION["adminname"])){
+            header("location:/PHPFinallWork/login.php?msg=您没有权限，请登录后访问！");
+            
+        }
+        ?>
+                       
         <!-- Navigation Bar-->
         <header id="topnav">
             <div class="topbar-main">
@@ -56,13 +58,17 @@
                         <ul class="nav navbar-nav navbar-right pull-right">
                             <li>
                                 <form role="search" class="navbar-left app-search pull-left hidden-xs">
-                                     <input type="text" placeholder="在此搜索" class="form-control">
+                                     <input type="text" placeholder="搜索
+                                     " class="form-control">
                                      <a href=""><i class="fa fa-search"></i></a>
                                 </form>
                             </li>
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                <?php
+                                    
+                                    echo '您好： '.$_SESSION["adminname"];
+                                    ?>
                                     <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
                                 </a>
 
@@ -159,7 +165,7 @@
                 </div>
 
                 <div class="panel">
-
+                
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-6">
@@ -188,7 +194,10 @@
                                     define('UserPhotoPath','./img/');
                                     echo '<tr class="gradeX">';
                                     $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
+
                                     mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
+                                  
+                                    
                                     mysqli_set_charset($con,"UTF8");     
                                     $sql = "SELECT * FROM users ";
                                           //执行SQL语句
@@ -215,7 +224,7 @@
                                         echo '<td>'.$row["degree"].'</td>';
                                         echo '<td>'.$row["intro"].'</td>';
                                         
-                                        echo '<td><img src="" width = 60 height = 60 ></td>';
+                                        echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
                                         
 
                                         

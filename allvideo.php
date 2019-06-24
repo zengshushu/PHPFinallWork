@@ -227,7 +227,7 @@
                                             echo '<td>其他</td>';
                                         }
                                         
-                                        echo '<td>''</td>';
+                                        echo '<td>'.$row["uploadadmin"].'</td>';
                                         echo '<td>'.$row["uploadadmin"].'</td>';
                                         echo '<td>'.$row["hittimes"].'</td>';
                                         echo '<td>'.$row["downtimes"].'</td>';

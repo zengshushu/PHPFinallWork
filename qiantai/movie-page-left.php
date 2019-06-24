@@ -90,9 +90,12 @@
                         mysqli_set_charset($con,"UTF8");     
                         $sql = "SELECT * FROM videos WHERE vid='$vid' ";
                                 //执行SQL语句
-
+                        
                         $result=mysqli_query($con,$sql);
                         $row = mysqli_fetch_assoc($result);
+                        $hit=$row["hittimes"]+1;
+                        $sql2="update videos set hittimes=$hit where vid=$vid";
+                        mysqli_query($con,$sql2);
                         echo '<h2 class="page-heading">'.$row["videoname"].'</h2>';
                          
                     ?>
@@ -116,7 +119,8 @@
                             <p class="movie__option"><strong>上传人: </strong><a href="#"><?php echo $row["uploadadmin"];?></a></p>
                             <p class="movie__option"><strong>点击量: </strong><?php echo $row["hittimes"];?></p>
                             <p class="movie__option"><strong>下载量: </strong><a href="#"><?php echo $row["downtimes"];?></a></p>
-                            <p class="movie__option"><strong>地址: </strong><a href="#"><?php echo $row["address"];?></a></p>
+                            <p class="movie__option"><strong>地址: </strong><a href="download.php?vid=<?php
+                            echo $row["vid"];?>"><?php echo $row["address"];?></a></p>
 
                         </div>
                     </div>
