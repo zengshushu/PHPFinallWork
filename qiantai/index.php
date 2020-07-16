@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>AMovie</title>
+    <title>Exceisior</title>
     <meta name="description" content="A Template by Gozha.net">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <!-- Mobile Specific Metas-->
@@ -41,7 +41,7 @@
 <?php
         session_start();
         if(!isset($_SESSION["uname"])){
-            header("location:/PHPFinallWork/qiantai/login.php?msg=您没有权限，请登录后访问！");
+            header("location:/ViarolabScan/qiantai/login.php?msg=您没有权限，请登录后访问！");
             
         }
         ?>
@@ -59,61 +59,42 @@
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 <div class="control-panel">
                     <div class="auth auth--home">
-                        <div class="auth__show">
-                            <span class="auth__image">
-                                <img alt="" src="images/client-photo/auth.png">
-                            </span>
-                        </div>
                         <a href="#" class="btn btn--sign btn--singin">
                         <?php           
                             echo '您好： '.$_SESSION["uname"];
+                            
                          ?>
                         </a>
                         <ul class="auth__function">
                             <li><a href="#" class="auth__function-item">个人信息</a></li>
-                            <li><a href="#" class="auth__function-item">设置</a></li>
+                            <li><a href="../adminregister.html" class="auth__function-item">管理员注册</a></li>
                         </ul>
 
-                    </div>
-                    <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">预定列表</a>
-                </div>
 
             </div>
         </header>
 
-        <div class="container">
+        <div class="container" style="width:1000px;height:40vh; margin-top:30vh; margin-left:100px; position:center">
             <div class="col-sm-12">
-                <div class="mega-select-present mega-select-top mega-select--full">
+                <div class="mega-select-present mega-select-top mega-select--full" style="padding: 0;">
                     <div class="mega-select-marker">
-                        <div class="marker-indecator location">
-                            <p class="select-marker"><span>By Dr.Dre</span> <br>A-Movie</p>
-                        </div>
+                        
 
 
                     </div>
-
-                    <div class="mega-select pull-right">
-                        <span class="mega-select__point">搜索关于</span>
-                        <ul class="mega-select__sort">
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active"
-                                    data-filter='location'>本地</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='cinema'>科幻</a>
-                            </li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter"
-                                    data-filter='film-category'>剧情</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='actors'>喜剧</a>
-                            </li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter"
-                                    data-filter='director'>灾难</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='country'>动画</a>
-                            </li>
-                        </ul>
-
-                        <input name="search-input" type='text' class="select__field">
-
+                
+                    <div class="mega-select pull-right" style="margin-top: 0;" >
+                    <div align="center">
+                    <img  src="./images/Vogo.png" style="width:300px; margin-right:80px";   >
+                        </div>
+                        <span class="mega-select__point" style="width:500px; text-size:100px">扫码枪搜索 Viarolab</span>
+                       
+                        <form method="get" action="search.php">
+                        <input name="k" type='search' size="20"  class="select__field" value = "<?php error_reporting(0); $_GET['k'];?>" autofocus/> 
+                            
                         <div class="select__btn">
-                            <a href="#" class="btn btn-md btn--danger location">在此 <span
-                                    class="hidden-exrtasm">搜索</span></a>
+                            <button type= "submit" value="Search" class="btn btn-md btn--danger location">在此 <span
+                                    class="hidden-exrtasm">搜索</span></button>
 
                         </div>
 
@@ -122,249 +103,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">电影</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                        <!-- Movie variant with time -->
-                        <?php
-                        define('PhotoPath','../videoimg/');
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='1' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">电视剧</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                        <!-- Movie variant with time -->
-                        <?php
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='2' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                        mysqli_close($con);  
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">动画片</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                                               <!-- Movie variant with time -->
-                                               <?php
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='3' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">科技</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                        <!-- Movie variant with time -->
-                                               <!-- Movie variant with time -->
-                                               <?php
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='4' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">教育</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                        <!-- Movie variant with time -->
-                                               <!-- Movie variant with time -->
-                        <?php
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='6' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                          
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-
-            <h2 id='target' class="page-heading heading--outcontainer">原创</h2>
-
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8 col-md-9">
-                        <!-- Movie variant with time -->
-                                                <!-- Movie variant with time -->
-                                                <?php
-                        $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
-                        mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
-                        mysqli_set_charset($con,"UTF8");     
-                        $sql = "SELECT * FROM videos WHERE tid='9' ";
-                                //执行SQL语句
-
-                        $result=mysqli_query($con,$sql);
-                    
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo '<div class="movie movie--test movie--test--dark movie--test--left">';
-                            echo '<div class="movie__images">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie-beta__link">';
-                            echo ' <img src="'.PhotoPath.$row["pic"].'">';
-                            echo ' </a></div>';
-                            echo '<div class="movie__info">';
-                            echo '<a href="movie-page-left.php?vid='.$row["vid"].'" class="movie__title">'.$row["videoname"].'</a>';
-                            echo '<p class="movie__time">91 min</p>';
-                            echo '<p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a
-                            href="#">Drama</a></p>  
-                            <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>                            </div>
-                        </div>';
-                        }
-                        mysqli_close($con);  
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            </section>
 
             <div class="clearfix">
             </div>
@@ -373,11 +111,10 @@
             <section class="container">
                 <div class="col-xs-12 col-md-6">
                     <div class="footer-info">
-                        <p class="heading-special--small">A.Movie<br><span class="title-edition">in the social
-                                media</span></p>
+                        <p class="heading-special--small">Exceisior<br><span class="title-edition">Power By BlackMoon</span></p>
 
                         <div class="clearfix"></div>
-                        <p class="copy">&copy; A.Movie, 2019. All rights reserved. Done by BlackMoon</p>
+                        <p class="copy">&copy; Exceisior, 2020. All rights reserved. Done by BlackMoon Belong to ViaroLab</p>
                     </div>
                 </div>
             </section>
@@ -435,7 +172,7 @@
             init_Home();
         });
     </script>
-
+    
 </body>
 
 </html>

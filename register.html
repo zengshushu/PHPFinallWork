@@ -23,7 +23,7 @@
         </nav>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">用户注册 </h1>
+    <h1 class="display-4">商户注册 </h1>
     <p class="lead">注册界面.</p>
     <p class="lead">16180600404曾立新</p>
   </div>
@@ -36,7 +36,7 @@
     <form action='print.php' method='post' enctype="multipart/form-data">
   <div class="form-row">
         <div class="form-group col-md-6">
-                <label for="inputAddress">姓名</label>
+                <label for="inputAddress">户主名</label>
                 <input type="text" class="form-control" id="inputName4" placeholder="userame" name="username" required>
               </div>
     
@@ -47,35 +47,29 @@
   </div>
   <div class="form-row">
   <div class="form-group col-md-12">
-        <label for="input">爱好</label>
-        <input type="text" class="form-control" id="text" placeholder="介绍" name="hobby" required>
+        <label for="input">商户类型</label>
+        <input type="text" class="form-control" id="text" placeholder="如 个体 公司 或集团" name="hobby" required>
     </div>
 </div>
 <div class="form-row">
         <div class="form-group col-md-12">
-              <label for="input">介绍</label>
-              <input type="text" class="form-control" placeholder="介绍" name="intro" required>
+              <label for="input">经营类型</label>
+              <input type="text" class="form-control" placeholder="如 食品 日用" name="intro" required>
           </div>
       </div>
   <div class="form-group">
-    <label for="inputAddress2">学历</label>
-    <select id="inputState" class="form-control" name="degree" required>
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <label for="inputAddress2">商铺名称</label>
+    <input type="text" class="form-control" placeholder="如 鑫鑫小卖部" name="degree" required>
   </div>
   <div class="form-row">
   <div class="form-group col-md-4">
-      <label for="inputState">出生年份</label>
+      <label for="inputState">执照期限</label>
       <select id="inputState" class="form-control" name="year" required>
-        <option selected>1996</option>
-        <option>1997</option>
-        <option>1998</option>
-        <option>1999</option>
-        <option>2000</option>
+        <option selected>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
       </select>
     </div>
     <div class="form-group col-md-4">
@@ -112,7 +106,7 @@
 
     <div class="custom-file form-inline">
         <input type="file"  name="file" class="custom-file-input" >
-        <label class="custom-file-label" for="customFile" style="padding:12px">选择照片</label>
+        <label class="custom-file-label" for="customFile" style="padding:12px">选择证件照</label>
       </div>
   </div>
   <button type="submit" class="btn btn-primary">注册</button>
@@ -124,7 +118,7 @@
   <div class="var">
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">2019年4月9日.</p>
+        <p class="text-muted">2020年4月9日.</p>
       </div>
     </footer>
   </div>

@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>AMovie - 详情</title>
+        <title>Exceisior - 详情</title>
         <meta name="description" content="A Template by Gozha.net">
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="Gozha.net">
@@ -46,6 +46,13 @@
 </head> 
 
 <body>
+<?php
+        session_start();
+        if(!isset($_SESSION["uname"])){
+            header("location:/PHPFinallWork/qiantai/login.php?msg=您没有权限，请登录后访问！");
+            
+        }
+        ?>
     <div class="wrapper">
         <!-- Banner -->
         <!-- Header section -->
@@ -70,9 +77,18 @@
                 
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 <div class="control-panel">
-                    <a href="#" class="btn btn--sign login-window">登陆/login</a>
-                   
-                </div>
+                    <div class="auth auth--home">
+                        
+                        <a href="#" class="btn btn--sign btn--singin">
+                        <?php           
+                            echo '您好： '.$_SESSION["uname"];
+                         ?>
+                        </a>
+                        <ul class="auth__function">
+                            <li><a href="#" class="auth__function-item">个人信息</a></li>
+                            <li><a href="../adminregister.html" class="auth__function-item">管理员注册</a></li>
+                        </ul>
+
 
             </div>
         </header>
@@ -115,11 +131,11 @@
                         <div class="col-sm-6 col-md-8">
                             <p class="movie__time">169 min</p>
 
-                            <p class="movie__option"><strong>上映日期: </strong><a href="#"><?php echo $row["uploaddate"];?></a></p>
-                            <p class="movie__option"><strong>上传人: </strong><a href="#"><?php echo $row["uploadadmin"];?></a></p>
-                            <p class="movie__option"><strong>点击量: </strong><?php echo $row["hittimes"];?></p>
-                            <p class="movie__option"><strong>下载量: </strong><a href="#"><?php echo $row["downtimes"];?></a></p>
-                            <p class="movie__option"><strong>地址: </strong><a href="download.php?vid=<?php
+                            <p class="movie__option"><strong>保质期至: </strong><a href="#"><?php echo $row["uploaddate"];?></a></p>
+                            <p class="movie__option"><strong>负责人: </strong><a href="#"><?php echo $row["uploadadmin"];?></a></p>
+                            <p class="movie__option"><strong>价格: </strong><?php echo $row["hittimes"];?></p>
+                            <p class="movie__option"><strong>购买量: </strong><a href="#"><?php echo $row["downtimes"];?></a></p>
+                            <p class="movie__option"><strong>购买地址: </strong><a href="download.php?vid=<?php
                             echo $row["vid"];?>"><?php echo $row["address"];?></a></p>
 
                         </div>
@@ -181,11 +197,11 @@
             <section class="container">
                 <div class="col-xs-12 col-md-6">
                     <div class="footer-info">
-                        <p class="heading-special--small">A.Movie<br><span class="title-edition">in the social
+                        <p class="heading-special--small">Exceisior<br><span class="title-edition">in the social
                                 media</span></p>
 
                         <div class="clearfix"></div>
-                        <p class="copy">&copy; A.Movie, 2019. All rights reserved. Done by BlackMoon</p>
+                        <p class="copy">&copy; Exceisior, 2020. All rights reserved. Done by BlackMoon</p>
                     </div>
                 </div>
             </section>

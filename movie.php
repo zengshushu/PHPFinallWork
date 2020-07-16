@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-        <title>影视分类</title>
+        <title>Exceisior</title>
 
         <link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
 
@@ -43,14 +43,20 @@
 
 
     <body>
-
+    <?php
+        session_start();
+        if(!isset($_SESSION["adminname"])){
+            header("location:/PHPFinallWork/login.php?msg=您没有权限，请登录后访问！");
+            
+        }
+        ?>
         <!-- Navigation Bar-->
         <header id="topnav">
             <div class="topbar-main">
                 <div class="container">
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="#" class="logo"><i class="md md-terrain"></i> <span>video </span></a>
+                        <a href="#" class="logo"><i class="md md-terrain"></i> <span>Exceisior </span></a>
                     </div>
                     <!-- End Logo container-->
 
@@ -63,14 +69,17 @@
                                 </form>
                             </li>
                             <li class="dropdown user-box">
-                                <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                            <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                                <?php
+                                    
+                                    echo '您好： '.$_SESSION["adminname"];
+                                    ?>
                                     <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
                                 </a>
 
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i>个人信息</a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> 设置</a></li>
+                                    <li><a href="adminregister.html"><i class="md md-settings"></i> 管理员注册</a></li>
                                     <li><a href="login.html"><i class="md md-settings-power"></i> 登出</a></li>
                                 </ul>
                             </li>
@@ -97,42 +106,32 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu" style="font-size:19px">
                             <li>
-                                <a href="coustomer.html"><i class="md md-home"></i> <span>用户管理 </span> </a>
+                                <a href="coustomer.php"><i class="md md-home"></i> <span>用户管理 </span> </a>
                             </li>
                             <li class="has-submenu">
-                                    <a href="#"><i class="md md-palette "></i><span> 管理 </span> </a>
-                                    <ul class="submenu">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                      
-                                    </ul>
+                                    <a href="allvideo.php"><i class="md md-palette "></i><span> 库存管理 </span> </a>
+                                    
+                                </li>
+    
+                                <li class="has-submenu  active">
+                                    <a href="movie.php"><i class="md md-invert-colors-on "></i> <span> 分类管理 </span> </a>
+                                    
                                 </li>
     
                                 <li class="has-submenu">
-                                    <a href="#"><i class="md md-invert-colors-on"></i> <span> 概况 </span> </a>
-                                    <ul class="submenu">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-
-                                    </ul>
-                                </li>
-    
-                                <li class="has-submenu active">
-                                    <a href="#"><i class="md md-redeem"></i> <span> 数据 </span> </a>
+                                    <a href="#"><i class="md md-redeem"></i> <span> 传送门 </span> </a>
                                     <ul class="submenu">
                                         <li class="has-submenu">
-                                            <a href="#">Icons</a>
+                                            <a href="#">页面</a>
                                             <ul class="submenu">
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
+                                                <li><a href="./qiantai/index.php">商品页面</a></li>
+                                                <li><a href="./intro/index.html">介绍页面</a></li>
+                                                <li><a href="pinglun.php">评论管理</a></li>
                                             </ul>
                                         </li>
     
                         </ul> 
+                        
                         <!-- End navigation menu  -->
                     </div>
                 </div>

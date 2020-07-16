@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-        <title>Video</title>
+        <title>Exceisior</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/core.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
                 <div class="container">
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="#" class="logo"><i class="md md-terrain"></i> <span>video </span></a>
+                        <a href="#" class="logo"><i class="md md-terrain"></i> <span>Exceisior </span></a>
                     </div>
                     <!-- End Logo container-->
 
@@ -74,7 +74,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i>个人信息</a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> 设置</a></li>
+                                    <li><a href="adminregister.html"><i class="md md-settings"></i> 管理员注册</a></li>
                                     <li><a href="login.html"><i class="md md-settings-power"></i> 登出</a></li>
                                 </ul>
                             </li>
@@ -99,40 +99,29 @@
                 <div class="container">
                     <div id="navigation">
                         <!-- Navigation Menu-->
-                        <ul class="navigation-menu" style="font-size:19px">
-                            <li>
-                                <a href="coustomer.html"><i class="md md-home"></i> <span>用户管理 </span> </a>
+                        <ul class="navigation-menu " style="font-size:19px">
+                            <li class="has-submenu active">
+                                <a href="coustomer.php"><i class="md md-home "></i> <span>用户管理 </span> </a>
                             </li>
                             <li class="has-submenu">
-                                    <a href="#"><i class="md md-palette "></i><span> 管理 </span> </a>
-                                    <ul class="submenu">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                      
-                                    </ul>
+                                    <a href="allvideo.php"><i class="md md-palette "></i><span> 库存管理 </span> </a>
+                                    
                                 </li>
     
                                 <li class="has-submenu">
-                                    <a href="#"><i class="md md-invert-colors-on"></i> <span> 概况 </span> </a>
-                                    <ul class="submenu">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-
-                                    </ul>
+                                    <a href="movie.php"><i class="md md-invert-colors-on"></i> <span> 分类管理 </span> </a>
+                                    
                                 </li>
     
-                                <li class="has-submenu active">
-                                    <a href="#"><i class="md md-redeem"></i> <span> 数据 </span> </a>
+                                <li class="has-submenu ">
+                                    <a href="#"><i class="md md-redeem"></i> <span> 传送门 </span> </a>
                                     <ul class="submenu">
                                         <li class="has-submenu">
-                                            <a href="#">Icons</a>
+                                            <a href="#">页面</a>
                                             <ul class="submenu">
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
+                                                <li><a href="./qiantai/index.php">商品页面</a></li>
+                                                <li><a href="./intro/index.html">介绍页面</a></li>
+                                                <li><a href="pinglun.php">评论管理</a></li>
                                             </ul>
                                         </li>
     
@@ -146,9 +135,9 @@
 
         <div class="wrapper">
             <div class="container">
-
                 <!-- Page-Title -->
                 <div class="row">
+
                     <div class="col-sm-12">
                         <div class="btn-group pull-right">
                             <button type="button" class="btn btn-primary dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">设置 <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
@@ -160,7 +149,7 @@
                                 <li><a href="#">other</a></li>
                             </ul>
                         </div>
-                        <h4 class="page-title">用户列表</h4>
+                        <h4 class="page-title">商户列表</h4>
                     </div>
                 </div>
 
@@ -170,21 +159,21 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="m-b-30">
-                                    <button id="addToTable" class="btn btn-primary waves-effect waves-light">添加 <i class="fa fa-plus"></i></button>
+                                    <a href="register.html"><button id="addToTable" class="btn btn-primary waves-effect waves-light">添加 <i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
                         <table class="table table-bordered table-striped" id="datatable-editable">
                             <thead>
                                 <tr>
-                                    <th>姓名</th>
+                                    <th>头像</th>
+                                    <th>户主名</th>
                                     <th>密码</th>
                                     <th>性别</th>
-                                    <th>生日</th>
-                                    <th>爱好</th>
-                                    <th>学历</th>
-                                    <th>自我介绍</th>
-                                    <th>头像</th>
+                                    <th>执照期限</th>
+                                    <th>类型</th>
+                                    <th>商店名</th>
+                                    <th>所属类别</th>
                                     <th>编辑</th>
 
                                 </tr>
@@ -206,12 +195,9 @@
                                 
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo '<tr>';
-                                        echo'<td class="actions">';
-                                        echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
-                                        echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
-                                        echo'<a href="change.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')"class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
-                                        echo'<a href="doUserDelete.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
-                                        echo'</td>';
+                                        echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
+
+                                       
                                         echo '<td>'.$row["uname"].'</td>';
                                         echo '<td>'.$row["password"].'</td>';
                                         if($row["gender"]==1){
@@ -223,8 +209,13 @@
                                         echo '<td>'.$row["hobby"].'</td>';
                                         echo '<td>'.$row["degree"].'</td>';
                                         echo '<td>'.$row["intro"].'</td>';
+                                        echo'<td class="actions">';
+                                        echo'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>';
+                                        echo'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>';
+                                        echo'<a href="change.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')"class="on-default edit-row"><i class="fa fa-pencil"></i></a>';
+                                        echo'<a href="doUserDelete.php?uid='.$row["uid"].'" onclick="return confirm('.'sure'.')" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>';
+                                        echo'</td>';
                                         
-                                        echo '<td><img src="'.UserPhotoPath.$row["pic"].'" width = 60 height = 60 ></td>';
                                         
 
                                         

@@ -13,7 +13,7 @@
 
             //$result是整型
             if ($result==1) {
-                echo "修改成功，2秒后返回用户列表页";
+                echo "修改成功，2秒后返回列表页";
                 header("refresh:2;url='movie.php'");
                 }else{
                     echo "修改失败";

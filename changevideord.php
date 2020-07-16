@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>修改</title>
+    <title>修改ViaroLab数据</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
   <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class=container>
-        <a class="navbar-brand" href="#">修改</a>
+        <a class="navbar-brand" href="#">在此修改信息</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,13 +24,13 @@
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">修改信息 </h1>
-    <p class="lead">修改界面.</p>
-    <p class="lead">16180600404曾立新</p>
+    <p class="lead">可以在此修改产品所有信息.</p>
+    <p class="lead">ViaroLab</p>
   </div>
 </div>
       <div class="container">
     <div class="var">
-    <h2>在此修改</h2>
+    <h2>确认您的修改</h2>
     <div class="var">
     <?php
     $id=$_GET["vid"]; 
@@ -44,32 +44,29 @@
     ?>
   <div class="form-row">
         <div class="form-group col-md-6">
-                <label for="inputAddress">名称</label>
-                <input type="text" class="form-control" id="inputName4" placeholder="name" name="username" required>
+                <label for="inputAddress">商品名称</label>
+                <input type="text" class="form-control" id="inputName4"  value="<?php echo $row["videoname"];?>" name="username" required>
               </div>
     
   </div>
   <div class="form-row">
   <div class="form-group col-md-12">
-        <label for="input">地址</label>
-        <input type="text" class="form-control" id="text" placeholder="地址" name="address" required>
+        <label for="input">库存</label>
+        <input type="text" class="form-control" id="text"  value="<?php echo $row["downtimes"];?>" name="downtimes" required>
     </div>
 </div>
 <div class="form-row">
         <div class="form-group col-md-12">
-              <label for="input">介绍</label>
-              <input type="text" class="form-control" placeholder="介绍" name="intro" required>
+              <label for="input">条码</label>
+              <input type="text" class="form-control"  value="<?php echo $row["intro"];?>" name="intro" required>
           </div>
       </div>
       <div class="form-group">
-        <label for="inputAddress2">上传人</label>
-        <select id="inputState" class="form-control" name="degree" required>
-            <option selected>1</option>
-            <option>2</option>
-          </select>
+        <label for="inputAddress2">价格</label>
+        <input type="text" class="form-control"  value="<?php echo $row["price"];?>" name="price" required>
           <label for="inputAddress2">种类</label>
           <select id="inputState" class="form-control" name="type" required>
-              <option selected>1</option>
+              <option selected> <?php echo $row["tid"];?></option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
@@ -80,13 +77,13 @@
 
   <div class="form-row">
   <div class="form-group col-md-4">
-      <label for="inputState">上映时间</label>
+      <label for="inputState">修改日期</label>
       <select id="inputState" class="form-control" name="year" required>
-        <option selected>1996</option>
-        <option>1997</option>
-        <option>1998</option>
-        <option>1999</option>
-        <option>2000</option>
+        <option selected>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
       </select>
     </div>
     <div class="form-group col-md-4">
@@ -108,13 +105,13 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">日</label>
-      <input type="text" class="form-control" id="inputZip" name="date" required>
+      <input type="text" value="1" class="form-control" id="inputZip" name="date" required>
     </div>
   </div>
   <div class="form-group">
     <div class="custom-file form-inline">
         <input type="file"  name="file" class="custom-file-input" >
-        <label class="custom-file-label" for="customFile" style="padding:12px">选择封面</label>
+        <label class="custom-file-label" for="customFile" style="padding:12px">选择商品图</label>
       </div>
   </div>
   <button type="submit" class="btn btn-primary">修改</button>
@@ -126,7 +123,7 @@
   <div class="var">
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">2019年4月9日.</p>
+        <p class="text-muted">2020 ViaroLab.</p>
       </div>
     </footer>
   </div>

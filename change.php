@@ -44,46 +44,40 @@
     ?>
   <div class="form-row">
         <div class="form-group col-md-6">
-                <label for="inputAddress">姓名</label>
-                <input type="text" class="form-control" id="inputName4" placeholder="userame" name="username" required>
+                <label for="inputAddress">户主名</label>
+                <input type="text" class="form-control" id="inputName4" value="<?php echo $row["uname"];?>" name="username" required>
               </div>
     
     <div class="form-group col-md-6">
       <label for="inputPassword4">密码</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password" required>
+      <input type="password" class="form-control" id="inputPassword4"  value="<?php echo $row["password"];?>" name="password" required>
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-12">
-        <label for="input">爱好</label>
-        <input type="text" class="form-control" id="text" placeholder="介绍" name="hobby" required>
+        <label for="input">商户类型</label>
+        <input type="text" class="form-control" id="text"  value="<?php echo $row["hobby"];?>" name="hobby" required>
     </div>
 </div>
 <div class="form-row">
         <div class="form-group col-md-12">
-              <label for="input">介绍</label>
-              <input type="text" class="form-control" placeholder="介绍" name="intro" required>
+              <label for="input">经营类型</label>
+              <input type="text" class="form-control"  value="<?php echo $row["intro"];?>" name="intro" required>
           </div>
       </div>
   <div class="form-group">
-    <label for="inputAddress2">学历</label>
-    <select id="inputState" class="form-control" name="degree" required>
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <label for="inputAddress2">商铺名称</label>
+    <input type="text" class="form-control"  value="<?php echo $row["degree"];?>" name="degree" required>
   </div>
   <div class="form-row">
   <div class="form-group col-md-4">
-      <label for="inputState">出生年份</label>
+      <label for="inputState">执照期限</label>
       <select id="inputState" class="form-control" name="year" required>
-        <option selected>1996</option>
-        <option>1997</option>
-        <option>1998</option>
-        <option>1999</option>
-        <option>2000</option>
+        <option selected>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
       </select>
     </div>
     <div class="form-group col-md-4">
@@ -120,7 +114,7 @@
 
     <div class="custom-file form-inline">
         <input type="file"  name="file" class="custom-file-input" >
-        <label class="custom-file-label" for="customFile" style="padding:12px">选择照片</label>
+        <label class="custom-file-label" for="customFile" style="padding:12px">选择证件照</label>
       </div>
   </div>
   <button type="submit" class="btn btn-primary">修改</button>

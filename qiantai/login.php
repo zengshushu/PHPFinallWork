@@ -46,7 +46,7 @@
             <div class="panel panel-color panel-primary panel-pages">
                 <div class="panel-heading bg-img"> 
                     <div class="bg-overlay"></div>
-                    <h3 class="text-center m-t-10 text-white"> 登录 <strong>video</strong> </h3>
+                    <h3 class="text-center m-t-10 text-white"> 登录 <strong>ViaroLab</strong> </h3>
                 </div> 
                 <div class="panel-body">
 
@@ -87,7 +87,7 @@
                             <a href="coustomer.html".html"><i class="fa fa-lock m-r-5"></i>忘记密码?</a>
                         </div>
                         <div class="col-sm-5 text-right">
-                            <a href="register.html">创建账户</a>
+                            <a href="../register.html">创建账户</a>
                         </div>
                     </div>
                 </form> 

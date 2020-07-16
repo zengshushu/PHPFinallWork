@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>增加一个</title>
+    <title>反馈</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
   <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class=container>
-        <a class="navbar-brand" href="#">PHP</a>
+        <a class="navbar-brand" href="#">添加反馈</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,8 +22,8 @@
         </nav>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">增加成功！已经写入数据库</h1>
-    <p class="lead">.</p>
+    <h1 class="display-4">已加入ViaroLab数据库</h1>
+    <p class="lead">即将跳转到<a href="allvideo.php">商品库存界面.</a></p>
     
   </div>
 </div>
@@ -36,18 +36,18 @@
             $tid=$_POST['type'];
             $intro=$_POST['intro'];
             $type=$_POST['type'];
-            $people=$_POST['degree'];
+            $price=$_POST['price'];
             $brithyear=$_POST['year'];
             $brithmonth=$_POST['month'];
             $brithday=$_POST['date'];
-            $address=$_POST['address'];
+            $kucun=$_POST['kucun'];
             $brithdate=$brithyear."-".$brithmonth."-".$brithday;
             $filename=$_FILES["file"]["name"];
             $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
             mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
             mysqli_set_charset($con,"UTF8");     
-            $sql = "INSERT INTO videos (tid,videoname,pic,intro,uploadadmin,uploaddate,address)
-                VALUES ('$tid','$videoname','$filename','$intro','$people','$brithdate','$address')";
+            $sql = "INSERT INTO videos (videoname,tid,pic,intro,uploaddate,price,downtimes)
+                VALUES ('$videoname','$type','$filename','$intro','$brithdate','$price','$kucun')";
                   //执行SQL语句
             mysqli_query($con,$sql)or die("插入失败");
             //关闭数据库
@@ -57,9 +57,10 @@
             echo"增加成功，信息如下"."<br>";
             echo"名称：".$videoname."<br>";
             echo"种类：".$type."<br>";
-            echo"介绍：".$intro."<br>";
+            echo"条码：".$intro."<br>";
             echo"日期：".$brithyear."年".$brithmonth.$brithdate."日"."<br>";
-            echo"地址：".$address."<br>";
+            echo"价格：".$price."<br>";
+            echo"库存：".$kucun."<br>";
 
      ?>
           <?php
@@ -92,7 +93,11 @@
             // 存放路径
             move_uploaded_file($_FILES["file"]["tmp_name"],"./videoimg/".$_FILES["file"]["name"]);
             ?>
-    
+    <?php
+	
+	header("refresh:2.1;url='allvideo.php'");
+            ?>
+}
     </div>
     </div>
 
@@ -100,7 +105,7 @@
   <div class="var">
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">2019年4月9日.</p>
+        <p class="text-muted">2020 ViaroLab.</p>
       </div>
     </footer>
   </div>

@@ -16,8 +16,8 @@ $num=mysqli_num_rows($result);
 if ($num>0) {
 	session_start();//启动session
 	$_SESSION["adminname"]=$adminname; //将管理员用户名写入session
-	echo "登录成功！2秒后将跳转到用户列表页<br/>";
-	header("refresh:2.1;url='coustomer.php'");
+	echo "登录成功！2秒后将跳转到产品列表页<br/>";
+	header("refresh:2.1;url='allvideo.php'");
 }else
 {   echo "登录失败 用户名密码错误！2秒后将返回登录页重新登录<br/>";
 	header("refresh:2;url='login.php'");

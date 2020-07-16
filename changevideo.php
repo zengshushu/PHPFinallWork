@@ -13,7 +13,7 @@
   <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class=container>
-        <a class="navbar-brand" href="#">PHP</a>
+        <a class="navbar-brand" href="#">ViaroLab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,8 +22,9 @@
         </nav>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">修改成功！已经写入数据库</h1>
-    <p class="lead">.</p>
+    <h1 class="display-4">信息已更新</h1>
+    <p class="lead">ViaroLab产品数据库.</p>
+    <p class="lead">点击跳转到<a href="allvideo.php">商品库存界面.</a></p>
     
   </div>
 </div>
@@ -37,29 +38,29 @@
             $tid=$_POST['type'];
             $intro=$_POST['intro'];
             $type=$_POST['type'];
-            $people=$_POST['degree'];
+            $price=$_POST['price'];
             $brithyear=$_POST['year'];
             $brithmonth=$_POST['month'];
             $brithday=$_POST['date'];
-            $address=$_POST['address'];
+            $kucun=$_POST['downtimes'];
             $brithdate=$brithyear."-".$brithmonth."-".$brithday;
             $filename=$_FILES["file"]["name"];
             $con=mysqli_connect("localhost", "root", "")or die("canot connect server");
             mysqli_select_db($con,"neuvideo")or die("cannot select DB");   
             mysqli_set_charset($con,"UTF8");     
-            $sql = "update videos set videoname='$videoname', tid='$type',address='$address',uploaddate='$brithdate',uploadadmin='$people',intro='$intro',pic='$filename' where vid='$vid'";
+            $sql = "update videos set videoname='$videoname', tid='$type',downtimes='$kucun',uploaddate='$brithdate',price='$price',intro='$intro',pic='$filename' where vid='$vid'";
                   //执行SQL语句
             mysqli_query($con,$sql)or die("修改失败");
             //关闭数据库
             mysqli_close($con);  
 
 
-            echo"增加成功，信息如下"."<br>";
+            echo"修改成功，信息如下"."<br>";
             echo"名称：".$videoname."<br>";
             echo"种类：".$type."<br>";
-            echo"介绍：".$intro."<br>";
+            echo"条码：".$intro."<br>";
             echo"日期：".$brithyear."年".$brithmonth.$brithdate."日"."<br>";
-            echo"地址：".$address."<br>";
+            echo"库存：".$kucun."<br>";
 
      ?>
           <?php
@@ -91,6 +92,8 @@
 	      
             // 存放路径
             move_uploaded_file($_FILES["file"]["tmp_name"],"./videoimg/".$_FILES["file"]["name"]);
+            header("refresh:2.1;url='allvideo.php'");
+
             ?>
     
     </div>

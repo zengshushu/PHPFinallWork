@@ -46,7 +46,7 @@
   <div class="form-row">
         <div class="form-group col-md-6">
                 
-                <input type="text" class="form-control" id="inputName4" placeholder="类名" name="typename" required>
+                <input type="text" class="form-control" id="inputName4"  value="<?php echo $row["typename"];?>" name="typename" required>
               </div>
   </div>
   <button type="submit" class="btn btn-primary">修改</button>

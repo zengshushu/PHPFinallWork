@@ -9,7 +9,7 @@
   $sql="delete from videos where vid=$vid";
   $result=mysqli_query($con,$sql);//$result是整型
   if ($result==1) {
-    echo "删除成功，2秒后返回用户列表页";
+    echo "删除成功，2秒后返回商品列表页";
     header("refresh:2;url='allvideo.php'");
       }else{
         echo "删除失败";
